@@ -21,14 +21,15 @@ for n in range(2, 8):
     lab.pomiary[n].multiply_by(0.1)
 
 
+
 # wpisanie do plików opracowań pomiarów i obliczeń niewiadomych
 
 lab.opracuj_pomiary()
 
-k1a = lab.oblicz(k, "k1", 1, 3)
-k2a = lab.oblicz(k, "k2", 1, 5)
-k1b = lab.oblicz(k, "k1", 2, 4)
-k2b = lab.oblicz(k, "k2", 2, 6)
+k1a, dk1a = lab.oblicz(k, "k1", 1, 3)
+k2a, dk2a = lab.oblicz(k, "k2", 1, 5)
+k1b, dk1b = lab.oblicz(k, "k1", 2, 4)
+k2b, dk2b = lab.oblicz(k, "k2", 2, 6)
 lab.oblicz(w_exp, "wsyn1", 7)
 lab.oblicz(w_exp, "wasyn", 8)
 
@@ -54,4 +55,6 @@ w_teoret1 = sp.solve((-m1*w**2+k1+k2)*(-m2*w**2+k1)-k1**2, w)
 
 w_teoret2 = sp.solve((-m1*w**2+k1+k2)*(-m2*w**2+k2)-k2**2, w)
 
-print(w_teoret1, "\n", w_teoret2)
+
+if __name__ =="__main__":
+    print(w_teoret1, "\n", w_teoret2)

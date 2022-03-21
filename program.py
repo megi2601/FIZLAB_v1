@@ -48,14 +48,14 @@ class Lab:
 
     def oblicz(self, szukana, nazwa, *pomiary):
         pom = [self.pomiary[i - 1] for i in pomiary]
-        val = None
+        val1, val2 = None, None
         with open(self.szukane_file, "a", newline="") as f:
             writer = csv.writer(f)
             data = szukana.eval(*pom)
             row = [nazwa, ",".join([p.name for p in pom]), data[0], data[1]]
             writer.writerow(row)
-            val = data[0]
-        return val
+            val1, val2 = data[0], data[1]
+        return val1, val2
 
     def init_file_szukane(self):
         header = ["niewiadoma", "pomiary", "wartosc", "niepewnosc"]
