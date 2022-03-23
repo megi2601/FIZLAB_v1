@@ -32,4 +32,8 @@ for el in [k21, k22]:
     s+=(dif*niepew[el])**2
 delta_k2 = sqrt(s)
 
-print(delta_k1/1000, "\n", delta_k2/1000)
+delta_k1 /= 1000
+delta_k2 /=1000
+
+if __name__ == "__main__":
+    print(delta_k1, "\n", delta_k2)

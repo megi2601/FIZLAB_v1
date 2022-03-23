@@ -43,6 +43,9 @@ m2 = lab.pomiary[1].avg/1000
 k1 = (k1a + k1b)/2000
 k2 = (k2a + k2b)/2000
 
+delta_m1 = lab.pomiary[0].delta/1000
+delta_m2 = lab.pomiary[1].delta/1000
+
 
 # eq = (-m1*w**2+k1+k2)*(-m2*w**2+k2)-k2**2
 # 1 - górne, 2 - dolne elementy
