@@ -33,6 +33,8 @@ c = k_1*k_2
 w1 = sqrt((-b + sqrt(b**2-4*a*c))/(2*a))
 w2 = sqrt((-b - sqrt(b**2-4*a*c))/(2*a))
 
+print(latex(w1.diff(k_1)))
+
 delta_w1, delta_w2 = 0, 0
 
 for el in values:
@@ -61,6 +63,8 @@ w4 = sqrt((-b - sqrt(b**2-4*a*c))/(2*a))
 
 delta_w3, delta_w4 = 0, 0
 
+#print(latex(w3))
+
 for el in values:
     dif3 = w3.diff(el).subs(values).evalf()
     delta_w3+=(dif3*deltas[el])**2
@@ -69,6 +73,19 @@ for el in values:
 
 delta_w3, delta_w4 = sqrt(delta_w3), sqrt(delta_w4)
 
+w1=w1.subs(values).evalf()
+w2=w2.subs(values).evalf()
+w3 = w3.subs(values).evalf()
+w4=w4.subs(values).evalf()
 
-for n in [delta_w1, delta_w2, delta_w3, delta_w4]:
-    print(n)
+prt={
+    w1:delta_w1,
+    w2:delta_w2,
+    w3:delta_w3,
+    w4:delta_w4
+}
+
+
+
+for key, el in prt.items():
+    print(key, el)
