@@ -3,17 +3,17 @@ import numpy as np
 import sympy as sp
 
 
-#współczynniki Studenta-Fishera dla poziomu ufności 98%
+# współczynniki Studenta-Fishera dla poziomu ufności 98%
 student_fisher_98 = {
-    2:12.706,
-    3:4.303,
-    4:3.182,
-    5:2.776,
-    6:2.447,
-    7:2.365,
-    8:2.306,
-    9:2.262,
-    10:2.228,
+    2: 12.706,
+    3: 4.303,
+    4: 3.182,
+    5: 2.776,
+    6: 2.447,
+    7: 2.365,
+    8: 2.306,
+    9: 2.262,
+    10: 2.228,
 }
 
 
@@ -30,8 +30,8 @@ class Pomiar:
     def calculate(self):
         self.std = np.std(self.dane) / sqrt(self.num)
         self.avg = np.mean(self.dane)
-        if len(self.dane)<=10:
-            self.std*=student_fisher_98[len(self.dane)]
+        if len(self.dane) <= 10:
+            self.std *= student_fisher_98[len(self.dane)]
         self.delta = sqrt(self.std ** 2 + (self.accuracy ** 2) / 3)
 
     def get_info(self):

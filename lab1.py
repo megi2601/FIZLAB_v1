@@ -21,7 +21,6 @@ for n in range(2, 8):
     lab.pomiary[n].multiply_by(0.1)
 
 
-
 # wpisanie do plików opracowań pomiarów i obliczeń niewiadomych
 
 lab.opracuj_pomiary()
@@ -34,30 +33,30 @@ lab.oblicz(w_exp, "wsyn1", 7)
 lab.oblicz(w_exp, "wasyn", 8)
 
 
-#dodatkowe obliczenia
+# dodatkowe obliczenia
 
 w = sp.Symbol("w")
 
-m1=lab.pomiary[0].avg/1000
-m2 = lab.pomiary[1].avg/1000
-k1 = (k1a + k1b)/2000
-k2 = (k2a + k2b)/2000
+m1 = lab.pomiary[0].avg / 1000
+m2 = lab.pomiary[1].avg / 1000
+k1 = (k1a + k1b) / 2000
+k2 = (k2a + k2b) / 2000
 
-delta_m1 = lab.pomiary[0].delta/1000
-delta_m2 = lab.pomiary[1].delta/1000
+delta_m1 = lab.pomiary[0].delta / 1000
+delta_m2 = lab.pomiary[1].delta / 1000
 
 
 # eq = (-m1*w**2+k1+k2)*(-m2*w**2+k2)-k2**2
 # 1 - górne, 2 - dolne elementy
 
-#drgania symetryczne - zamienione sprężyny
+# drgania symetryczne - zamienione sprężyny
 
-w_teoret1 = sp.solve((-m1*w**2+k1+k2)*(-m2*w**2+k1)-k1**2, w)
+w_teoret1 = sp.solve((-m1 * w ** 2 + k1 + k2) * (-m2 * w ** 2 + k1) - k1 ** 2, w)
 
-#drgania asymetryczne
+# drgania asymetryczne
 
-w_teoret2 = sp.solve((-m1*w**2+k1+k2)*(-m2*w**2+k2)-k2**2, w)
+w_teoret2 = sp.solve((-m1 * w ** 2 + k1 + k2) * (-m2 * w ** 2 + k2) - k2 ** 2, w)
 
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     print(w_teoret1, "\n", w_teoret2)
